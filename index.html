@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Carreras</title>
+    <title>Formulario de información</title>
     <style>
         * {
             box-sizing: border-box;
@@ -42,10 +42,10 @@
             background: rgba(255, 255, 255, 0.3);
             border: none;
             border-radius: 5px;
-            color: white;
+            color: rgb(14, 12, 12);
         }
         input::placeholder, select {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(15, 14, 14, 0.8);
         }
         .submit-btn {
             background-color: rgba(75, 75, 75, 0.7);
@@ -80,76 +80,8 @@
         <select id="carreras">
             <option value="">- Carreras -</option>
         </select>
-    </div>
-
-    <script>
-        const carrerasPorPlantel = {
-            "Chignahuapan": ["Procesos de Gestión Administrativa", "Programación", "Servicios de Hotelería"],
-            "Cholula": ["Programación", "Transformación de Plásticos"],
-            "Guadalue Victoria": ["Programación"],
-            "Magdalena Acajete": ["Procesos de Gestión Administrativa", "Programación", "Mantenimiento Automotriz", "Mecatrónica"],
-            "Huejotzingo": [],
-            "Tecamachalco": ["Programación", "Procesos de Gestión Administrativa", "Producción Industrial", "Producción Industrial de Alimentos"],
-            "Tehuitzingo": ["Programación", "Mantenimiento Industrial"],
-            "Tlacotepec": ["Programación", "Procesos de Gestión Administrativa"],
-            "Xicotepec de Juárez": ["Programación", "Mantenimiento a Motores de Combustión Interna"],
-            "Venustiano Carranza": ["Técnico en Mecatrónica", "Programación"]
-        };
-
-        const plantelesNormal = [
-            "Boca del Monte",
-            "Buena Vista",
-            "La Pahua",
-            "Mexcatochintla",
-            "Naranjastitia",
-            "Santa Elena",
-            "Tlaolantongo"
-        ];
-
-        const modalidad = document.getElementById("modalidad");
-        const nivel = document.getElementById("nivel");
-        const plantel = document.getElementById("plantel");
-        const carreras = document.getElementById("carreras");
-
-        modalidad.addEventListener("change", actualizarPlanteles);
-        nivel.addEventListener("change", actualizarPlanteles);
-        plantel.addEventListener("change", actualizarCarreras);
-
-        function actualizarPlanteles() {
-            plantel.innerHTML = '<option value="">- Plantel -</option>';
-            carreras.innerHTML = '<option value="">- Carreras -</option>';
-            
-            if (modalidad.value === "PRESENCIAL") {
-                if (nivel.value === "TECNICA") {
-                    Object.keys(carrerasPorPlantel).forEach(nombre => {
-                        let option = document.createElement("option");
-                        option.value = nombre;
-                        option.textContent = nombre;
-                        plantel.appendChild(option);
-                    });
-                } else if (nivel.value === "NORMAL") {
-                    plantelesNormal.forEach(nombre => {
-                        let option = document.createElement("option");
-                        option.value = nombre;
-                        option.textContent = nombre;
-                        plantel.appendChild(option);
-                    });
-                }
-            }
-        }
-
-        function actualizarCarreras() {
-            const seleccionado = plantel.value;
-            carreras.innerHTML = '<option value="">- Carreras -</option>';
-            if (carrerasPorPlantel[seleccionado]) {
-                carrerasPorPlantel[seleccionado].forEach(carrera => {
-                    let option = document.createElement("option");
-                    option.value = carrera;
-                    option.textContent = carrera;
-                    carreras.appendChild(option);
-                });
-            }
-        }
-    </script>
+        <input type="text" placeholder="Nombre Completo" required>
+        <input type="tel" placeholder="Celular" required>
+        <input type="email" placeholder="Mail" required>
 </body>
 </html>
