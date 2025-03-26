@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de información</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: rgba(95, 83, 83, 0.5); /* Transparencia */
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(8px); /* Efecto de desenfoque */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-container h2 {
+            margin-bottom: 15px;
+            color: white;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 5px;
+            color: rgb(4, 4, 4);
+        }
+        input::placeholder, select {
+            color: rgb(0, 0, 0);
+        }
+        .submit-btn {
+            background-color: rgba(75, 75, 75, 0.7);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2></h2>
+        <select id="modalidad">
+            <option value="">- Modalidad -</option>
+            <option value="PRESENCIAL">PRESENCIAL</option>
+        </select>
+        <select id="nivel">
+            <option value="">- Nivel -</option>
+            <option value="TECNICA">TECNICA</option>
+            <option value="NORMAL">NORMAL</option>
+        </select>
+        <select id="plantel">
+            <option value="">- Plantel -</option>
+        </select>
+        <select id="carreras">
+            <option value="">- Carreras -</option>
+        </select>
+        <input type="text" placeholder="Nombre Completo" required>
+        <input type="tel" placeholder="Celular" required>
+        <input type="email" placeholder="Mail" required>
+</body>
+</html>
