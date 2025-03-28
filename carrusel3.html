@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .carrusel {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .imagenes {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .imagenes img {
+            max-width: 100%;
+            display: block;
+            width: 100%;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+        /* Media queries */
+        @media (max-width: 768px) {
+            .inicio-container {
+            margin-top: 80px;
+            padding: 30px 10px;
+        }
+
+        .footer {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .prev, .next {
+            padding: 5px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="carrusel">
+        <div class="imagenes">
+            <img src="ENTRADA1.jpeg" alt="ENTRADA1">
+            <img src="salon1.jpeg" alt="salon1">
+            <img src="SALONES.jpeg" alt="SALONES">
+            <img src="LABORATORIO-DE-SUS-MULTIPLES.jpeg" alt="LABORATORIO-DE-SUS-MULTIPLES">
+            <img src="LABORATORIO-DE-SUS-MULTIPLES1.jpeg" alt="LABORATORIO-DE-SUS-MULTIPLES1">
+            <img src="LABORATORIO-DE-SUS-MULTIPLES3-1.jpeg" alt="LABORATORIO-DE-SUS-MULTIPLES3-1">
+            <img src="LABORATORIO-DE-COMPUTO1.jpeg" alt="LABORATORIO-DE-COMPUTO1">
+            <img src="COOPERATIVA.jpeg" alt="COOPERATIVA">
+        </div>
+        <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
+        <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let indice = 0;
+        let intervalo;
+
+        function cambiarImagen(direccion = 1) {
+            const imagenes = document.querySelectorAll('.imagenes img');
+            indice += direccion;
+
+            if (indice >= imagenes.length) {
+                indice = 0;
+            } else if (indice < 0) {
+                indice = imagenes.length - 1;
+            }
+
+            const desplazamiento = -indice * 100; // Cambia el 100 si cambias el tamaño de las imágenes
+            document.querySelector('.imagenes').style.transform = `translateX(${desplazamiento}%)`;
+        }
+
+        function iniciarCarrusel() {
+            intervalo = setInterval(() => {
+                cambiarImagen(1); // Avanza a la siguiente imagen automáticamente
+            }, 3000);
+        }
+
+        function detenerCarrusel() {
+            clearInterval(intervalo);
+        }
+
+        // Iniciar carrusel automático
+        iniciarCarrusel();
+
+        // Opcional: Detener el carrusel cuando el usuario interactúe con los botones
+        document.querySelector(".prev").addEventListener("click", detenerCarrusel);
+        document.querySelector(".next").addEventListener("click", detenerCarrusel);
+    </script>
+</body>
+</html>
