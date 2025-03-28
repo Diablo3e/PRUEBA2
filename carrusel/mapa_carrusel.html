@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            height: 50vh; /* Ajusta la altura según necesites */
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .left, .right {
+            display: flex;
+            height: 100%;
+        }
+        .left {
+            width: 60%;
+            overflow: hidden;
+        }
+        .left iframe {
+            width: 100%;
+            height: 250%;
+            object-fit: contain; /* Ajusta el contenido sin recortar */
+        }
+        .right {
+            width: 100%;
+        }
+        .right iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap; /* Permite que los elementos se ajusten mejor en pantallas pequeñas */
+        height: auto; /* Ajusta la altura del contenedor */
+    }
+
+    .left, .right {
+        width: 50%; /* Mantén los elementos con un 50% de ancho cada uno en pantallas pequeñas */
+    }
+
+    .left iframe, .right iframe {
+        height: 200px; /* Ajusta la altura de los iframes para pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .left, .right {
+        width: 100%; /* Hace que los elementos ocupen el 100% del ancho en dispositivos aún más pequeños */
+    }
+
+    .left iframe, .right iframe {
+        height: 150px; /* Ajusta la altura aún más para dispositivos pequeños */
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Carrusel -->
+    <div class="left">
+        <iframe src="https://diablo3e.github.io/PRUEBA2/carrusel/carrusel3.html"></iframe>
+    </div>
+
+    <!-- Mapa -->
+    <div class="right">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7542.138302864667!2d-98.261216!3d19.060697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc6f9c7259605%3A0x840c364ab1a253c1!2sColorines%202%2C%20Bello%20Horizonte%2C%2072700%20Heroica%20Puebla%20de%20Zaragoza%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1743139074347!5m2!1ses-419!2smx" 
+            width="600" 
+            height="450" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    
+</div>
+
+</body>
+</html>
